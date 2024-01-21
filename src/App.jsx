@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
-import {puppyList} from './data.js'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { puppyList } from './data.js';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
 console.log(puppyList);
 
 function App() {
-  const [puppies,setPuppies] = useState(puppyList);
+  const [puppies, setPuppies] = useState(puppyList);
+  console.log("puppyList: ", puppyList);
 
   return (
     <>
