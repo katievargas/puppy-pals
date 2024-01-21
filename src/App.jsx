@@ -30,7 +30,7 @@ function App() {
       </div>
 
       <div>
-        <h2>Name of Puppies</h2>
+        <h2>Puppy Names</h2>
         <ul>
           {puppies.map((puppy) => (
             <li key={puppy.name}>{puppy.name}</li>
