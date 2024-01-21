@@ -5,59 +5,57 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import './index.css';
 
-console.log(puppyList);
-
 function App() {
   const [puppies, setPuppies] = useState(puppyList);
-  console.log("puppyList: ", puppyList);
   const [featPupId, setFeatPupId] = useState(null);
 
   function handleClick(puppyId) {
-    // some logic here
     setFeatPupId(puppyId);
   }
 
   const featuredPup = puppies.find((pup) => pup.id === featPupId);
 
-  console.log("featuredPup: ", featuredPup);
-
   return (
     <>
-      <h1>Puppy Pals</h1>
+    <h1>Puppy Pals</h1>
+      <div className="section">
       <div>
         <h2>List of Puppies</h2>
-        <ul>
+        <ol>
           {puppies.map((puppy) => (
             <li key={puppy.id}>{puppy.name}</li>
           ))}
-        </ul>
+        </ol>
+      </div>
       </div>
 
+      <div className="section">
       <div>
         <h2>Puppy Names</h2>
-        <ul>
+        <ol>
           {puppies.map((puppy) => (
-            <li key={puppy.name}>{puppy.name}</li>
+            <li key={puppy.id}>{puppy.name}</li>
           ))}
-        </ul>
+        </ol>
+      </div>
       </div>
 
-      
-      <div className="App">
-        {puppies.map((puppy) => (
-          <p onClick={() => handleClick(puppy.id)} key={puppy.id}>
-            {puppy.name}
-          </p>
-        ))}
-        {featPupId && (
-          <div>
-            <h2>{featuredPup.name}</h2>
-            <ul>
-              <li>Age: {featuredPup.age}</li>
-              <li>Email: {featuredPup.email}</li>
-            </ul>
-          </div>
-        )}
+      <div className="section">
+        <div className="App">
+          <h2>Get To Know The Puppies</h2>
+          {puppies.map((puppy) => (
+            <p onClick={() => handleClick(puppy.id)} key={puppy.id}>
+              {puppy.name}
+            </p>
+          ))}
+          {featPupId && (
+            <div>
+              <h2>{featuredPup.name}</h2>
+                <li>Age: {featuredPup.age}</li>
+                <li>Email: {featuredPup.email}</li>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
